@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+/* Feel free to remove the following css: */
+
+
+/* 
+Animation + animated divs
+*/
+/* The typing effect */
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@-webkit-keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+/* The typewriter cursor effect */
+@-webkit-keyframes blink-caret {
+  0% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+
+@keyframes blink-caret {
+  0% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+
+#line1 {
+ // margin: 0 auto;
+  -webkit-animation: typing 3s steps(60, end), blink-caret .5s step-end 3s;
+  animation: typing 3s steps(60, end), blink-caret .5s step-end 3s;
+  -webkit-animation-fill-mode: forwards;
+
+  animation-fill-mode: forwards;
+  border-right: .15em solid white;
+}
+
+#line2 {
+//  background-color: #29a198;
+  color: #92b6de;
+ // margin: 12px auto;
+  -webkit-animation: typing 2s steps(60, end),
+    blink-caret .5s step-end infinite;
+  animation: typing 2s steps(60, end), blink-caret .5s step-end infinite;
+  animation-delay: 3.5s;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-delay: 3.5s;
+  border-right: .15em solid transparent;
+}
+/* 
+CSS
+*/
+
+
+#BotsBody {
+  background-color: #0173b1;
+  margin:2%;
+  //set overflow-y to 'hidden' to disable page scrolling
+ height: 100%; overflow-y: hidden; 
+ overflow-x: hidden;
+
+ min-height: 100vh;
+
+}
+
+.divmania {
+//  clear: left;
+//margin: 0 auto;
+
+}
+
+.divmania p {
+font-family: monaco,Consolas,Lucida Console,monospace;
+//font-weight: bold;
+}
+
+.intro {
+  display: flex;
+      display:-webkit-flex;
+//  justify-content: center;
+//  position: relative;
+ margin: auto;
+ // text-align:center;
+ 
+  //  margin: 0 auto;
+  margin-top: 5%;
+    width: 100%;
+  //background-color: #052129;
+
+}
+
+.intro p {
+  text-color: #75b4d5;
+  
+  width: 0px;
+  
+  font-size: 40pt;
+  font-weight: 500;
+  overflow: hidden;
+  /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange;
+  /* The typwriter cursor */
+  white-space: nowrap;
+  /* Keeps the content on a single line */
+  letter-spacing: .15em;
+  /* Adjust as needed */
+  padding: 0;
+  margin-top: -0.5%;
+font-family: monaco,Consolas,Lucida Console,monospace;
+} 
+.media {
+  opacity: 0.4;
+// justify-content: center;
+// position: absolute;
+  // margin: 0 auto;
+  //margin-top:10%;
+//display: block;
+
+}
+.media img {
+    max-width: 100%;
+  margin: auto;
+//display: block;
+vertical-align: middle;
+   text-align: center;
+ //          filter:opacity(30%);
+            // filter:   saturate(8);
+                 
+              filter:   contrast(400%) brightness(250%);
+          // filter:hue-rotate(90deg);
+// position: fixed; /* or absolute */
+  overflow: hidden;
+ 
+  
+}
+
+.user span span {
+  width: 100px;
+  display: block;
+}
+
+.user {
+  clear: left;
+  font-size: 25pt;
+  width: 19%;
+   color: white;
+ margin-right: 5px;
+ hyphens: auto;
+}
+
+.timePosted {
+ width: 19%;
+  color: white;
+ // float: right;
+  text-align: right;
+}
+
+.tweet {
+  width: 60%;
+  color: #92b6de;
+  background-color: #016aa3;
+  padding-left: 5px;
+  margin-left: 5px;
+  /* color:blue;
+  background-color:white */
+    
+
+}
+
+.divmania ul {
+  list-style: none;
+  display: table;
+  width: 100%;
+  overflow: hidden;
+  margin: 5px;
+  padding: 0px;
+//position: absolute;
+margin-top: 3%;
+// justify-content: center;
+}
+
+.divmania li {
+  list-style: none;
+  overflow: hidden;
+  display: table-cell;
+  //border-left: 2em solid #052129;
+  //  background-color: #052129;
+}
+
+.user, .tweet, .timePosted {
+float: left;
+ // text-align: center;
+  font-size: 30pt;
+  font-weight: 500;
+	font-family: monaco,Consolas,Lucida Console,monospace;
+}
+
+
+.user p {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+/* Responsive: */
+
+@media screen and (min-width: 250px) {
+    .intro p {font-size: 10px;}
+      .user, .tweet, .timePosted {font-size: 10px;}
+     .user {margin-right: 0px;}
+     .intro {size:100%;}
+}
+
+@media screen and (min-width: 400px) {
+    .intro p {font-size: 15px;}
+      .user, .tweet, .timePosted {font-size: 12px;}
+      .user {margin-right: 0px;}
+      .intro {size:100%;}
+}
+
+/* Larger than phablet (also point when grid becomes active) */
+
+@media screen and (min-width: 500px) {
+    .intro p {font-size: 15px;}
+      .user, .tweet, .timePosted {font-size: 13px;}
+      .user {margin-right: 0px;}
+      .intro {size:100%;}
+      }
+@media screen and (min-width: 600px) {
+    .intro p {font-size: 18px;}
+      .user, .tweet, .timePosted {font-size: 15px;}
+      .user {margin-right: 2px;}
+      .intro {size:100%;}
+
+/* Larger than tablet */
+@media screen and (min-width: 750px) 
+{
+    .intro p {font-size: 22px;}
+      .user, .tweet, .timePosted {font-size: 20px; }
+      .user {margin-right: 3px;}
+      .intro {size:100%;}
+      
+      
+}
+
+/* Larger than desktop */
+@media screen and (min-width: 1000px) {
+    .intro p {font-size: 30px;}
+      .user, .tweet, .timePosted {font-size: 25px;}
+      .user {margin-right: 5px;}
+        .container {margin: 15px;}
+        .intro {size:100%;}
+}
+
+/* Larger than Desktop HD */
+@media screen and (min-width: 1200px) {
+  .intro p {font-size: 34px;}
+  .user, .tweet, .timePosted {font-size: 27px;}
+  .user {margin-right: 5px;}
+  .container {margin: 15px;}
+  .intro {size:100%;}
+}
+
+@media screen and (min-width: 1300px) {
+  .intro p {font-size: 39px;}
+  .user, .tweet, .timePosted {font-size: 30px;}
+  .user {margin-right: 5px;}
+  .container {margin: 15px;}
+  .intro {size:100%;}
+}

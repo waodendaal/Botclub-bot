@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body id="BotsBody">
+<!-- Please feel free to remove the following HTML! -->
+<div class="container">
+<!-- My HTML -->
+ <div class="intro">
+    <div>
+      <p id="line1" style="color:#f5f0f3;">&lt;script src=&quot;HNI_Twitter_Meta_Bot.js&quot;&gt;&lt;/script&gt;
+      </p>
+ <div class="intro" style="margin-top:0;">
+    <div>
+ <p id="line2" >@HNI_Botclub Retweeting:
+      </p>
+     </div>
+  </div>
+    </div>
+  </div>
+  <div class="divmania" id="divmania2">
+    <div id="example1"></div>
+  </div>
+<!-- END my HTML -->
+</div>
+</body >
+<script type="text/javascript">
+  // This code is here to make the cover clickable when it is on the homepage
+  new function () {
+    function postMessage(data) {
+      window.parent.postMessage(JSON.stringify(data), '*');
+    }
+
+    window.addEventListener('message', function (event) {
+      var data = JSON.parse(event.data);
+
+      // Ignore messages that do not contain the domain_path property:
+      if (!data.domain_path) return;
+
+      // If we are on the homepage, add a link to body to have the parent redirect to the magazine URL:
+      var onHomepage = /homepage\=1/.test(window.location.search);
+      if (onHomepage) {
+        document.body.addEventListener('click', function () {
+          // Tell parent to redirect us:
+          postMessage({
+            status: 'redirect',
+            domain_path: data.domain_path
+          });
+        });
+        document.body.style.cursor = 'pointer';
+      }
+    });
+    // Get unique cover id from url:
+    // Tell parent that loading of this iframe is ready
+    postMessage({
+      status: 'ready',
+      coverId: window.location.pathname.split('/')[4]
+    });
+  }();
+</script>
+<script src="main.js"></script>
+</html>
